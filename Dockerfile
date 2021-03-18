@@ -3,7 +3,7 @@ FROM centos:latest
 WORKDIR /root
 
 RUN yum -y update; \
- yum -y install git sudo wget nc unzip openssh-server openssh-clients lsof net-tools python38 which; \
+ yum -y install git sudo wget nc unzip openssh-server openssh-clients lsof net-tools python38 which passwd cracklib-dicts; \
  yum -y update; \
  yum clean all
 
@@ -28,7 +28,7 @@ RUN dnf update -y; \
  command=/usr/sbin/sshd -D\n\
  ' > /etc/supervisor/conf.d/supervisord.conf
 
-RUN useradd -m -G root,wheel centos; echo "centos:changeit" | chpasswd; mkdir -p /home/centos/.ssh; \
+RUN useradd -m -G root,wheel centos; echo "centos:Jdk1@Python2#Node3" | chpasswd; mkdir -p /home/centos/.ssh; \
  sed -i -r 's/%wheel[ \t]+ALL=\(ALL\)[ \t]+ALL/%wheel\tALL=(ALL)\tNOPASSWD: ALL/g' /etc/sudoers; \
  chown -R centos /home/centos; \
  chmod 700 /home/centos/.ssh; \
