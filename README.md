@@ -6,4 +6,4 @@
 4. Node latest long term support release
 5. ssh access with user/password as:  centos:changeit
 6. Shell utilities
-7. 
+7. Supervisor for multiple process in same container
